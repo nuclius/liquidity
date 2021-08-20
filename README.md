@@ -22,5 +22,3 @@
  the gas price is also expressed as a wei value
 
  - you can view the liquidity provider by mapping through the sources list and pulling the name from any fields with a proportion > 0
-
- - you can define a custom fee recipient that will recieve trading fees with res.orders[0].feeRecipientAddress
