@@ -18,8 +18,9 @@ router.get("/", (req, res) => {
 // gwei amount = token amount with 18 zeros (IE 1WETH = 1000000000000000000 gwei)
 // can also just pass a standard number and the endpoint can be modified to convert the amount
 router.post("/quote", async (req, res) => {
-    const {sellToken, buyToken, buyAmount} = req.body;
-    const response = await fetch(`${baseURL}sellToken=${sellToken}&buyToken=${buyToken}&buyAmount=${buyAmount}`)
+    const {sellToken, buyToken, sellTokenAmount} = req.body;
+    const amount = sellTokenAmount * 10 ** 8
+    const response = await fetch(`${baseURL}quote?sellToken=${buyToken}&buyToken=${sellToken}&buyAmount=${amount}`)
     const quote = await response.json()
     res.status(200).send(quote)
 })
